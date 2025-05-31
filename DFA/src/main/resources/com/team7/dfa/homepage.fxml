@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.effect.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.HomePageController">
+    <left>
+        <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Home" />
+                <Button fx:id="accountingButton" mnemonicParsing="false" onAction="#accountClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Accounting" />
+                <Button fx:id="invoiceButton" mnemonicParsing="false" onAction="#invoiceClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Invoicing" />
+                <Button fx:id="treasuryButton" mnemonicParsing="false" onAction="#treasuryClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Treasury" />
+                <Button fx:id="payrollButton" mnemonicParsing="false" onAction="#payrollClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Payroll" />
+                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Logout" />
+            </children>
+        </VBox>
+    </left>
+    <top>
+        <AnchorPane fx:id="titleBar" prefHeight="49.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="companyName" layoutX="14.0" layoutY="9.0" text="Placeholder Company Name" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="9.0">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <AnchorPane id="homePagePane" fx:id="contentPane" BorderPane.alignment="CENTER">
+            <children>
+            <Pane fx:id="backgroundImagePane" mouseTransparent="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <GridPane fx:id="mainPane" alignment="CENTER" layoutX="14.0" layoutY="108.0" prefHeight="517.0" prefWidth="980.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+                    </rowConstraints>
+                    <children>
+                        <AnchorPane fx:id="profitAnchor" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                            <children>
+                                <AnchorPane fx:id="profitAnchorInner" layoutX="10.0" layoutY="24.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+                                    <children>
+                                        <ScrollPane fx:id="profitScroll" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <content>
+                                                <ImageView fx:id="transactionGraphImage" pickOnBounds="true" />
+                                 </content>
+                                        </ScrollPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </AnchorPane>
+                                  <Label fx:id="profitHeading" alignment="CENTER" contentDisplay="CENTER" layoutX="115.0" layoutY="-1.0" prefHeight="27.0" prefWidth="204.0" text="Total Transactions" textAlignment="CENTER" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="-1.0" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="activityAnchor" GridPane.columnIndex="1">
+                            <children>
+                                  <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+                                      <children>
+                                          <ListView fx:id="listView" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                              </ListView>
+                                      </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </padding>
+                                  </AnchorPane>
+                                  <Label fx:id="activityHeading" alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="1.0" prefHeight="27.0" prefWidth="261.0" text="Recent Activity" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="1.0" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="expenseAnchor" GridPane.rowIndex="1">
+                            <children>
+                                <AnchorPane fx:id="expenseAnchorInner" layoutX="10.0" layoutY="35.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+                                    <children>
+                                        <ScrollPane fx:id="expenseScroll" fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <content>
+                                                <ImageView fx:id="expenseGraphImage" pickOnBounds="true" preserveRatio="true" />
+                                            </content>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                        </ScrollPane>
+                                    </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                                </AnchorPane>
+                                    <Label fx:id="expenseHeading" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="1.0" text="Expense Structure" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="139.0" AnchorPane.topAnchor="1.0" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="invoiceAnchor" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <children>
+                                  <AnchorPane AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+                                      <children>
+                                          <ScrollPane fx:id="invoiceScroll" fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <content>
+                                                  <ImageView fx:id="invoiceFlowGraphImage" pickOnBounds="true" preserveRatio="true" />
+                                 </content>
+                                          </ScrollPane>
+                                      </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                                  </AnchorPane>
+                                  <Label fx:id="invoiceHeading" alignment="CENTER" layoutX="167.0" layoutY="1.0" text="Invoice Flow" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="1.0" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+                <Label fx:id="titleLabel" alignment="CENTER" layoutX="274.0" layoutY="14.0" prefHeight="39.0" prefWidth="130.0" text="Home Page" textAlignment="CENTER" AnchorPane.leftAnchor="274.0" AnchorPane.rightAnchor="273.0" AnchorPane.topAnchor="14.0">
+                    <font>
+                        <Font size="27.0" />
+                    </font>
+                </Label>
+                <Button fx:id="generateGraphsButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="766.0" layoutY="79.0" mnemonicParsing="false" onAction="#generateGraphButton" text="Refresh" AnchorPane.rightAnchor="35.0">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+                <Label fx:id="descriptionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="52.0" prefHeight="35.0" prefWidth="598.0" text="Your homepage enables you to see your total profit, recent activity, expense structure, and invoice flow. All in one Place. Click on the Refresh Button to see the statistics!" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="155.0" AnchorPane.topAnchor="52.0" />
+            </children>
+         <effect>
+            <InnerShadow />
+         </effect>
+        </AnchorPane>
+    </center>
+
+    <stylesheets>
+      <URL value="@stylesheets/template.css" />
+      <URL value="@stylesheets/hompage.css" />
+   </stylesheets>
+</BorderPane>
