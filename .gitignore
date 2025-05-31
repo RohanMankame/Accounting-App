@@ -1,0 +1,15 @@
+DFA/out
+DFA/.idea/dataSources.xml
+DFA/.idea/sqldialects.xml
+*.properties
+*.properties
+*.class
+DFA/target
+*.xml
+*.xml
+/DFA/.idea
+/DFA/target
+/DFA/target/classes/
+*.xml
+DFA/.idea/workspace.xml
+DFA/target/classes/module-info.class
